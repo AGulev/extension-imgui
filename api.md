@@ -1,12 +1,164 @@
 # API reference
 
-* src
+* imgui\api
+  * [imgui](#imgui)
+* imgui\src
   * [extension_imgui](#extension_imgui)
 
-# src
+# imgui\api
+
+## imgui
+*File: `imgui\api\imgui.lua`*
+
+
+
+
+### None()
+IMAGES 
+
+
+
+### None()
+PRIMITIVES 
+
+
+
+### None()
+FRAMES 
+
+
+
+### None()
+INPUT 
+
+
+
+### None()
+KEY MODIFIERS 
+
+
+
+### None()
+TEXT INPUT 
+
+
+
+### None()
+TEXT INPUT 
+
+
+
+### None()
+TREE 
+
+
+
+### None()
+PUSH/POP ID 
+
+
+
+### None()
+WINDOW 
+
+
+
+### None()
+CHILD WINDOW 
+
+
+
+### None()
+POPUP FLAGS 
+
+
+
+### None()
+DRAG AND DROP 
+
+
+
+### None()
+COMBO 
+
+
+
+### None()
+TABLE -
+
+
+
+### None()
+TOOLTIP 
+
+
+
+### None()
+TAB BAR 
+
+
+
+### None()
+WIDGETS 
+
+
+
+### None()
+LAYOUT 
+
+
+
+### None()
+IMGUI PLOT 
+
+
+
+### None()
+IMGUI DEMO 
+
+
+
+### None()
+STYLE 
+
+
+
+### None()
+ITEM WIDTH 
+
+
+
+### None()
+NAVIGATION 
+
+
+
+### None()
+FONT -
+
+
+
+### None()
+DRAW -
+
+
+
+### None()
+INPUT CAPTURE -
+
+
+
+### None()
+CONFIG -
+
+
+
+---
+
+# imgui\src
 
 ## extension_imgui
-*File: `imgui/src/extension_imgui.cpp`*
+*File: `imgui\src\extension_imgui.cpp`*
 
 
 
@@ -330,11 +482,11 @@ EndChild
 
 
 ### begin_popup_context_item(id)
-BeginPopupContextItem 
+BeginPopupContextItem If id is omitted, uses the last item ID (same as ImGui helper behavior). Lua - call with no arguments to use the last item; passing nil is not accepted.
 
 
 PARAMS
-* `id` [`string`] - 
+* `id` [`string`] - Optional; if omitted, uses the last item ID.
 
 RETURNS
 * `result` [`boolean`] - 
@@ -580,6 +732,11 @@ InputInt4
 
 
 
+### input_int2()
+InputInt2 
+
+
+
 ### input_float3()
 InputFloat3 
 
@@ -621,6 +778,46 @@ RETURNS
 * `value` [`number`] - 
 
 
+### slider_float3(label,value1,value2,value3,min,max,precision)
+SliderFloat3 
+
+
+PARAMS
+* `label` [`string`] - 
+* `value1` [`number`] - 
+* `value2` [`number`] - 
+* `value3` [`number`] - 
+* `min` [`number`] - 
+* `max` [`number`] - 
+* `precision` [`number`] - 
+
+RETURNS
+* `value1` [`number`] - 
+* `value2` [`number`] - 
+* `value3` [`number`] - 
+
+
+### slider_float4(label,value1,value2,value3,value4,min,max,precision)
+SliderFloat4 
+
+
+PARAMS
+* `label` [`string`] - 
+* `value1` [`number`] - 
+* `value2` [`number`] - 
+* `value3` [`number`] - 
+* `value4` [`number`] - 
+* `min` [`number`] - 
+* `max` [`number`] - 
+* `precision` [`number`] - 
+
+RETURNS
+* `value1` [`number`] - 
+* `value2` [`number`] - 
+* `value3` [`number`] - 
+* `value4` [`number`] - 
+
+
 ### color_edit4(label,color,flags)
 ColorEdit4 
 
@@ -644,6 +841,18 @@ Button
 ### button_image()
 ButtonImage 
 
+
+
+### button_arrow(label,direction)
+ButtonArrow 
+
+
+PARAMS
+* `label` [`string`] - 
+* `direction` [`number`] - 
+
+RETURNS
+* `pushed` [`bool`] - 
 
 
 ### checkbox()
@@ -729,6 +938,19 @@ Separator
 ### get_cursor_screen_pos()
 GetCursorScreenPos 
 
+
+RETURNS
+* `x` [`number`] - Cursor screen x position
+* `y` [`number`] - Cursor screen y position
+
+
+### get_cursor_pos()
+GetCursorPos 
+
+
+RETURNS
+* `x` [`number`] - Cursor x position
+* `y` [`number`] - Cursor y position
 
 
 ### plot_lines()
@@ -816,6 +1038,23 @@ PopStyleColor
 
 
 
+### push_style_var(style_var,value)
+PushStyleVar 
+
+
+PARAMS
+* `style_var` [`number`] - Enum for the style to be pushed
+* `value` - Number or vmath.vector3 specifying the value of the style var
+
+
+### pop_style_var(count)
+PopStyleVar 
+
+
+PARAMS
+* `count` [`number`] - Number of style vars to pop; optional, defaults to 1
+
+
 ### set_window_font_scale()
 SetWindowFontScale 
 
@@ -853,6 +1092,11 @@ SetNextItemWidth
 
 ### calc_item_width()
 CalcItemWidth 
+
+
+
+### set_item_default_focus()
+SetItemDefaultFocus 
 
 
 
